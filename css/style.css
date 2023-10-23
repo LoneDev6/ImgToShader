@@ -322,7 +322,7 @@ div.settingsImage button.actionBtn:active {
 }
 
 
-button#generateButton {
+.genericButton {
     margin-bottom: 7px;
     width: 50%;
     font-family: 'Poppins', sans-serif;

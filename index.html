@@ -18,7 +18,7 @@
         <div id="outsideCanvas">
             <canvas id="shaderView" width="845" height="480"></canvas>
         </div>
-        <button id="generateButton" onclick="generateCode()">Generate</button>
+        <button id="generateButton" class="genericButton" onclick="generateCode(); DownlodPreparation()">Generate</button>
     </div>
     <div class="optionBar preventSelection">
         <div class="settings">
@@ -51,6 +51,8 @@
             <div class="parameter">
                 <label for="drawBackground">Draw Background</label>
                 <input type="checkbox" id="drawBackground" name="drawBackground" value="drawBackground" checked="true">
+                <label for="drawLoadingBar">Draw Loading Bar</label>
+                <input type="checkbox" id="drawLoadingBar" name="drawLoadingBar" value="drawLoadingBar" checked="true">
             </div>
             <div class="parameter">
                 <label for="drawLogo">Draw Logo</label>
@@ -60,35 +62,22 @@
                 <label for="autoSize">Auto</label>
                 <input type="checkbox" id="autoSize" name="autoSize" value="autoSize">
             </div>
-            <div class="parameter">
-                <label for="drawLoadingBar">Draw Loading Bar</label>
-                <input type="checkbox" id="drawLoadingBar" name="drawLoadingBar" value="drawLoadingBar" checked="true">
-            </div>
 
             <div class="topBtnDiv">
                 <button id="goToTopBtnSettings" onclick="changeUserScrollLevel('top')"></button>
             </div>
         </div>
 
-        <div id="imageListBox">
-            <input disabled ="file" accept=".png, .jpg, .jpeg, .webp" id="BtnUploadLogo" hidden oninput="loadLogo(event)" onclick="this.value=null;"/>
+        <!-- <div id="imageListBox" style="visibility: hidden;">
+            <input type="file" accept=".png, .jpg, .jpeg, .webp" id="BtnUploadLogo" hidden oninput="loadLogo(event)" onclick="this.value=null;"/>
             <label class="imgUpload" for="BtnUploadLogo" id="uploadLogo">Upload Logo</label>
-            <input disabled type="file" accept=".png, .jpg, .jpeg, .webp" id="BtnUploadImage" hidden oninput="loadImage(event)" onclick="this.value=null;"/>
+            <input type="file" accept=".png, .jpg, .jpeg, .webp" id="BtnUploadImage" hidden oninput="loadImage(event)" onclick="this.value=null;"/>
             <label class="imgUpload" for="BtnUploadImage" id="uploadImage">Upload Background Image</label>
             <div id="imageList">
-                <!-- <div class="addedImgBox">
-                    <span class="moveButton">
-                        <button class="upButton" onclick="changeImageStackPostion(event)"><img src="assets/default/icon/expand_less.png"></button>
-                        <button class="downButton" onclick="changeImageStackPostion(event)"><img src="assets/default/icon/expand_more.png"></button>
-                    </span>
-                    <img class="addedImg" src="assets/default/Banner.png">
-                    <input type="checkbox" class="IsVisible" checked="true">
-                    <button class="removeImg" onclick="removeImg(event)"><img src="assets/default/icon/delete.png"></button>
-                </div> -->
             </div>
-        </div>
+        </div> -->
 
-        <div class="settingsImage">
+        <div class="settingsImage" style="display:none">
             <div class="parameter">
                 <label class="label-resize" id="elementPosXSlider" for="elem_posX">Pos X</label>
                 <input class="numberBar" type="number" id="elementPosX" value="">
@@ -118,7 +107,7 @@
             </div>
         </div>
     </div>
-    <div class="generated" id="generated">
+    <div class="generated" id="generated" style="display:none">
         <p id="warningText"><u>Warning:</u> Remember that your file has been changed.<br>Please regenerate to have your new version</p>
         <button id="downloadPack" onclick="DownlodPreparation()"><img src="assets/default/icon/download_white.png"> Download</button>
         <div id="generatedCodeDiv">
